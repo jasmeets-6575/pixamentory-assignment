@@ -1,4 +1,13 @@
+import Link from "next/link";
+
 const Logo = () => {
-  return <h1 className="text-2xl font-bold tracking-wider ">LOGO</h1>;
+  return (
+    <Link
+      href={"/"}
+      className="text-2xl font-bold tracking-wider cursor-pointer"
+    >
+      LOGO
+    </Link>
+  );
 };
 export default Logo;
