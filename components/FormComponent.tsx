@@ -1,7 +1,7 @@
 "use client";
 
-import { DataType, tempData } from "@/utils/data";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { DataType } from "@/utils/data";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
 const baseUrl = `https://api.open-meteo.com/v1/`;
@@ -18,7 +18,6 @@ const FormComponent = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetchData();
-    console.log("submitted");
   };
 
   const fetchData = async () => {
@@ -27,8 +26,6 @@ const FormComponent = () => {
         `${baseUrl}forecast?latitude=${data.latitude}&longitude=${data.longitude}&hourly=temperature_2m`
       );
       const newData = await resp.json();
-      console.log(newData);
-
       setRequiredData(newData);
     } catch (error) {
       console.log(error);
